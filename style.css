@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    background: url(images/hero-image.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+section {
+    min-height: 400px;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1em;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.slider img {
+    flex: 0 0 1;
+    height: 12em;
+    /* aspect-ratio: 16 / 9; */
+    scroll-snap-align: start;
+}
+
