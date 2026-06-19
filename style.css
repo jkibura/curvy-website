@@ -187,3 +187,8 @@ section {
     content: '←';
     position-area: left;
 }
+
+.slider_3::scroll-button(left):disabled, .slider_3::scroll-button(right):disabled {
+    opacity: 0.75;
+    cursor: auto;
+} 
