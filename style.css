@@ -64,6 +64,7 @@ section {
 
 .slider img {
     flex: 0 0 1;
+    /* width: 100%; */
     height: 20em;
     /* aspect-ratio: 16 / 9; */
     scroll-snap-align: start;
@@ -77,6 +78,8 @@ section {
     padding: 2rem;
 }
 
+
+/* slider 2 */
 .slider-wrapper {
     max-width: 1200px;
     margin: auto;
@@ -96,8 +99,16 @@ section {
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25)
 }
 
-.slides img {
-    scroll-snap-align: end;
+.slide-2 {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.slide-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;  /*What exactly is this for though?? */
 }
 
 .slides-nav {
@@ -130,4 +141,49 @@ section {
 
 .slides::-webkit-scrollbar {
     display: none;
+}
+
+
+/*SLIDER 3*/
+.slider_3 {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    display: flex;
+    margin: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 1.5rem 3rem -1rem hsla(0, 0%, 0%, 0.5);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    anchor-name: --slider_3; /*This is to help us anchor the buttons using the new anchor-name attribute*/
+}
+
+.slider_3::-webkit-scrollbar {
+    display: none;
+}
+
+.slide-3 {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.slide-3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*I gotta learn this!!*/
+    display: block; /*I think this one removes the default padding that comes with the element, idk if it's image or the slide-3 div*/
+}
+
+.slider_3::scroll-button(right), .slider_3::scroll-button(left) {
+    content: '→';
+    cursor: pointer;
+    position: absolute;
+    position-anchor: --slider_3;
+    position-area: right;
+}
+
+.slider_3::scroll-button(left) {
+    content: '←';
+    position-area: left;
 }
