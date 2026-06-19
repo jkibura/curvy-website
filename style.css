@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: ;
+    --secondary-color: ;
+}
+
+.body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .hero {
     background: url(images/hero-image.jpg);
     background-size: cover;
@@ -20,11 +29,38 @@ section {
     gap: 1em;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    position: relative;
+    anchor-name: --slider;
+    z-index: -1;
+}
+
+.slider::scroll-button(right), .slider::scroll-button(left) {
+    content: '→';
+    position: fixed;
+    position-anchor: --slider;
+    position-area: right;
+    background-color: var(--primary-color);
+    font-family: Courier New;
+    font-size: large;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider::scroll-button(left) {
+    content: '←';
+    position-area: left;
+}
+
+.slider::scroll-button(right):disabled, .slider::scroll-button(left):disabled {
+    opacity: 0.75;
+    cursor: auto;
 }
 
 .slider img {
     flex: 0 0 1;
-    height: 12em;
+    height: 20em;
     /* aspect-ratio: 16 / 9; */
     scroll-snap-align: start;
 }
